@@ -1,4 +1,4 @@
-# ComparisonParser
+﻿# ComparisonParser
 
 Parses a simple comparison expression.
 
@@ -13,8 +13,8 @@ Upper and lower case are preserved.
 
 ## Value part
 Recognized value types:
--  number: integer or floating point, signed or unsigned. No commas are allowed, and no leading zeroes.
-- a string. All strings start and end with a double-quote (") character. Double-quote characters inside the string are escaped with a backslash; backslashes inside the string are also escaped with a backslash. Whitespace inside the string value is preserved.
+- number: integer or floating point, signed or unsigned. No commas are allowed, and no leading zeroes.
+- string: All strings start and end with a double-quote (") character. Double-quote characters inside the string are escaped with a backslash; backslashes inside the string are also escaped with a backslash. Whitespace inside the string value is preserved.
 - null: the literal text "null" (without quotes) is used for the value.
 
 ## Comparison operator part

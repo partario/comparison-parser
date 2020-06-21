@@ -16,7 +16,7 @@ namespace ComparisonParser
         const string nullRx = @"(?i)(?<null> is \s* (?: (?<not> not ) \s* )? null )";
         const string optionalWhiteSpaceRx = @"\s*";
 
-        public static void Setup() {
+        static void Setup() {
             if (! setup) {
                 comparisonExpressionRx = $@"
                     ^
@@ -61,7 +61,7 @@ namespace ComparisonParser
             var unescaped = Regex.Replace(escaped, @"\\([\\""])", "$1");
             return unescaped;
         }
-        public static string NormalizeTest(string testop) {
+        static string NormalizeTest(string testop) {
             return normalComparisonNames.GetValueOrDefault(testop.ToLower(), testop);
         }
 
