@@ -60,4 +60,4 @@ Whitespace inside a string value is preserved.
 ### Notes
 The expressions should be unsurprising, mostly.
 
-The `ComparisonParser.Parser()` method accepts an optional parameter that disallows the null tests, for use where no value can ever be null.
+The `Comparison.FromString()` method accepts an optional parameter that disallows the null tests, for use where no value can ever be null.
