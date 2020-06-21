@@ -16,7 +16,7 @@ Console.WriteLine(parsed);
 ```
 gives the output:
 ```
-Expression "CountByMarket > 3479" is a valid expression.
+Expression "CountByMarket > 3479" is valid.
 Comparison(UserString="CountByMarket > 3479", ValidComparison=true, ColumnName="CountByMarket", ComparisonType=">", Value="3479", ValueType="number")
 ```
 
