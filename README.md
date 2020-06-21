@@ -45,10 +45,10 @@ The comparison operators recognized vary by the value type:
     - `=` -- Equal. May also be written `==` or `eq`.
     - `>=` -- Greater than or equal. May also be written `ge`.
     - `>` -- Greater than. May also be written `gt`.
-    - `!=` -- Not equals. May also be written `<>` or `ne`.
+    - `!=` -- Not equal. May also be written `<>` or `ne`.
 - string:
-    - `=` -- Equals. May also be written `==` or `eq`.
-    - `!=` -- Not equals. May also be written `<>` or `ne`.
+    - `=` -- Equal. May also be written `==` or `eq`.
+    - `!=` -- Not equal. May also be written `<>` or `ne`.
 - null:
     - `is` -- True when null.
     - `is not` -- True when not null.
