@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace ComparisonParser
 {
-    public class Parser {
+    public class ComparisonParser {
         private static bool setup = false;
         private static string comparisonExpressionRx;
         private static Dictionary<string, string> normalComparisonNames;
@@ -119,13 +119,16 @@ namespace ComparisonParser
 
         public override string ToString() {
             return "Comparison(" +
-                $"UserString=\"{Parser.Escape(UserString)}\", " +
+                $"UserString=\"{ComparisonParser.Escape(UserString)}\", " +
                 $"ValidComparison={ValidComparison.ToString().ToLower()}, " +
                 $"ColumnName=\"{ColumnName}\", " +
                 $"ComparisonType=\"{ComparisonType}\", " +
                 $"Value=\"{Value}\", " +
                 $"ValueType=\"{ValueType}\"" +
             ")";
+        }
+        public static Comparison FromString(string userString, bool nullTestsAllowed = true) {
+            return ComparisonParser.FromString(userString, nullTestsAllowed);
         }
     }
 }

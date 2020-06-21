@@ -16,9 +16,9 @@ namespace ComparisonParser.Tests
         [TestCase("colName is not \"this\"")]  // "is not" is only valid for "is not null"
         public void FromString_InvalidStrings_ReturnNotValid(string userProvided)
         {
-            var result = Parser.FromString(userProvided);
+            var result = ComparisonParser.FromString(userProvided);
 
-            Assert.IsFalse(result.ValidComparison, $"\"{Parser.Escape(userProvided)}\" should not be accepted as a valid comparison");
+            Assert.IsFalse(result.ValidComparison, $"\"{ComparisonParser.Escape(userProvided)}\" should not be accepted as a valid comparison");
         }
 
         // all the number comparison types
@@ -95,13 +95,13 @@ namespace ComparisonParser.Tests
             string comparisonType,
             string value
         ) {
-           var result = Parser.FromString(userProvided);
+           var result = ComparisonParser.FromString(userProvided);
 
-           Assert.IsTrue(result.ValidComparison, $"\"{Parser.Escape(userProvided)}\" should be accepted as a valid comparison");
-           Assert.That(result.ValueType == valueType, $"\"{Parser.Escape(userProvided)}\" should have value type \"{valueType}\" but had \"{result.ValueType}\"");
-           Assert.That(result.ColumnName == columnName, $"\"{Parser.Escape(userProvided)}\" should have column name \"{columnName}\" but had \"{result.ColumnName}\"");
-           Assert.That(result.ComparisonType == comparisonType, $"\"{Parser.Escape(userProvided)}\" should have comparison type \"{comparisonType}\" but had \"{result.ComparisonType}\"");
-           Assert.That(result.Value == value, $"\"{Parser.Escape(userProvided)}\" should have value \"{value}\" but had \"{result.Value}\"");
+           Assert.IsTrue(result.ValidComparison, $"\"{ComparisonParser.Escape(userProvided)}\" should be accepted as a valid comparison");
+           Assert.That(result.ValueType == valueType, $"\"{ComparisonParser.Escape(userProvided)}\" should have value type \"{valueType}\" but had \"{result.ValueType}\"");
+           Assert.That(result.ColumnName == columnName, $"\"{ComparisonParser.Escape(userProvided)}\" should have column name \"{columnName}\" but had \"{result.ColumnName}\"");
+           Assert.That(result.ComparisonType == comparisonType, $"\"{ComparisonParser.Escape(userProvided)}\" should have comparison type \"{comparisonType}\" but had \"{result.ComparisonType}\"");
+           Assert.That(result.Value == value, $"\"{ComparisonParser.Escape(userProvided)}\" should have value \"{value}\" but had \"{result.Value}\"");
         }
 
         [TestCase("", "")]
@@ -111,7 +111,7 @@ namespace ComparisonParser.Tests
         [TestCase(@"""", @"\""")]
         [TestCase(@"""Yawn,"" he yawned. ""Sigh.""", @"\""Yawn,\"" he yawned. \""Sigh.\""")]
         public void Escape_GivenAString_ReturnWithQuotesAndBackslashesEscaped(string input, string expected) {
-            var got = Parser.Escape(input);
+            var got = ComparisonParser.Escape(input);
 
             Assert.That(got == expected, $"Escaped version of [{input}] should be [{expected}], not [{got}]");
         }
@@ -121,7 +121,7 @@ namespace ComparisonParser.Tests
         [TestCase(@"Text with \""escaped\"" quotes", @"Text with ""escaped"" quotes")]
         [TestCase(@"Text with a backslash: \\", @"Text with a backslash: \")]
         public void Unescape_GivenAString_ReturnWithBackslashesRemoved(string input, string expected) {
-            var got = Parser.Unescape(input);
+            var got = ComparisonParser.Unescape(input);
 
             Assert.That(got == expected, $"Unescaped version of [{input}] should be [{expected}], not [{got}]");
         }
